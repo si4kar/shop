@@ -1,0 +1,1 @@
+<h1>categories/list</h1>
