@@ -1,2 +1,3 @@
-<h1>Hello <?= $name ?></h1>
-<h2>Buy</h2>
+<h1>index/index</h1>
+<p>hello, <?= $name ?></p>
+

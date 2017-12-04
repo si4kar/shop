@@ -1,7 +1,6 @@
 <?php
 
-
 function actionList()
 {
-    return renderTemplate('categories/list');
+    echo 'categories/list';
 }

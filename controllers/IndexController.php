@@ -2,5 +2,5 @@
 
 function actionIndex()
 {
-    return renderTemplate('index/index', ['name' => 'Sergii Sichkar']);
+    return renderTemplate('Index/index', ['name' => 'Sergii Sichkar']);
 }

@@ -22,16 +22,16 @@
                     <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories/list">Categories</a>
+                    <a class="nav-link" href="/">Categories</a>
                 </li>
             </ul>
         </nav>
-        <h3 class="text-muted">Shop</h3>
+        <h3 class="text-muted">0910 Shop</h3>
     </header>
 
     <main role="main">
 
-        <?= $content ?>
+        <?=  $content  ?>
 
     </main>
 
