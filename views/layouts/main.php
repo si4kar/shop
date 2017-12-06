@@ -1,3 +1,10 @@
+<?php
+
+$error = getFlash('error');
+$success = getFlash('success');
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,18 +25,33 @@
     <header class="header clearfix">
         <nav>
             <ul class="nav nav-pills float-right">
+
                 <li class="nav-item">
                     <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Categories</a>
+                    <a class="nav-link" href="/categories/list">Categories</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/list">Products</a>
+                </li>
+
             </ul>
         </nav>
         <h3 class="text-muted">0910 Shop</h3>
     </header>
 
     <main role="main">
+
+        <?php if ($error) : ?>
+            <p class="alert alert-danger"><?= $error ?></p>
+        <?php endif; ?>
+
+        <?php if ($success) : ?>
+            <p class="alert alert-success"><?= $success ?></p>
+        <?php endif; ?>
 
         <?=  $content  ?>
 
