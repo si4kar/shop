@@ -34,6 +34,7 @@ function actionCreate()
                     die(mysqli_stmt_error($relationBindResult));
                 }
             }
+            $res = mysqli_stmt_execute($relationStatement);
             addFlash('success', "Product {$title} created successfully");
             redirect('/products/list');
         } else {

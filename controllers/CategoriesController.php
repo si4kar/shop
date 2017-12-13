@@ -53,8 +53,7 @@ function actionAcceptDelete()
 
         return renderTemplate('categories/delete', ['categories' => $categories]);
     }
-        //mysqli_query(getDbConnection(), 'SELECT * FROM categories WHERE id = {$id} LIMIT 1');
-        //return renderTemplate('categories/delete');
+
 
 
 }
@@ -72,3 +71,41 @@ function actionDelete()
 
     return renderTemplate('categories/list', ['categories' => $categories]);
 }
+
+function actionEdit()
+{
+    if (isset($_GET)) {
+
+        $id = (int)$_GET['id'];
+
+        $query = mysqli_query(getDbConnection(), "SELECT * FROM categories WHERE id = {$id} LIMIT 1");
+        $categories = mysqli_fetch_array($query);
+
+        return renderTemplate('categories/edit', ['categories' => $categories]);
+    }
+
+
+}
+
+function actionUpdate()
+{
+    if (getIsPostRequest()) {
+
+        $id = getArrayValue($_POST, 'id');
+        $title = getArrayValue($_POST, 'title');
+        $parentCategoryId = getArrayValue($_POST, 'parent_category_id');
+
+        $sql = "UPDATE categories SET (title = '{$title}'), (parent_category_id = '{$parentCategoryId}) WHERE id = {$id}";
+
+        $statement = mysqli_prepare(getDbConnection(), $sql);
+
+        if (!$statement) {
+            die(mysqli_error(getDbConnection()));
+        }
+
+        mysqli_stmt_execute($statement);
+
+        return header('Location: /categories/list');
+    }
+}
+

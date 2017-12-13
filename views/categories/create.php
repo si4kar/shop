@@ -13,8 +13,12 @@ $data = getFlash('failedCategoryData') ?: [];
     </div>
     <div class="form-group">
         <label>Parent category</label>
-        <select name="parent_category_id" class="form-control"></select>
+        <select name="parent_category_id" class="form-control">
+            <?php foreach ($categories as $category) : ?>
+                <option value="<?= $category['id']?>"><?= $category['title']?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
 
-    <button type="submit" class="btn btn-success">Create</button>
+    <button type="submit" class="btn btn-success btn-block">Create</button>
 </form>
