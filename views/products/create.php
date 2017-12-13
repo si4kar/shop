@@ -23,7 +23,7 @@
 
     <div class="form-group">
         <label>Product price</label>
-        <input type="text" class="form-control">
+        <input type="text" name="price" class="form-control">
             </div>
 
     <div class="form-group">
