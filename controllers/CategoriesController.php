@@ -5,8 +5,6 @@ function actionList()
     $query = mysqli_query(getDbConnection(), 'SELECT * FROM categories');
     $categories = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-
-
     return renderTemplate('categories/list', ['categories' => $categories]);
 }
 
@@ -53,14 +51,10 @@ function actionAcceptDelete()
 
         return renderTemplate('categories/delete', ['categories' => $categories]);
     }
-
-
-
 }
 
 function actionDelete()
 {
-
     if (isset($_GET)) {
        $id = (int)$_GET['id'];
         mysqli_query(getDbConnection(), "DELETE FROM categories WHERE id = {$id} LIMIT 1");
@@ -91,13 +85,13 @@ function actionUpdate()
 {
     if (getIsPostRequest()) {
 
-        $id = getArrayValue($_POST, 'id');
-        $title = getArrayValue($_POST, 'title');
-        $parentCategoryId = getArrayValue($_POST, 'parent_category_id');
+            $id = getArrayValue($_POST, 'id');
+            $title = getArrayValue($_POST, 'title');
+            //$parentCategoryId = getArrayValue($_POST, 'parent_category_id');
 
-        $sql = "UPDATE categories SET (title = '{$title}'), (parent_category_id = '{$parentCategoryId}) WHERE id = {$id}";
+            $sql = "UPDATE categories SET title = '{$title}' WHERE id = {$id}";
 
-        $statement = mysqli_prepare(getDbConnection(), $sql);
+            $statement = mysqli_prepare(getDbConnection(), $sql);
 
         if (!$statement) {
             die(mysqli_error(getDbConnection()));

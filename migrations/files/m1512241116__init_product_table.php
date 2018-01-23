@@ -7,7 +7,7 @@ CREATE TABLE products (
 id INT(11) auto_increment,
 title VARCHAR(255) NOT NULL,
 description TEXT,
-price DECIMAL(2),
+price DECIMAL(10),
 PRIMARY KEY (id)
 )
 SQL;
